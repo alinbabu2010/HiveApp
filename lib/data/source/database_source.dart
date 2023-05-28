@@ -16,4 +16,10 @@ class DatabaseSource {
     final database = await Hive.openBox<DataModel>('app_db');
     dataListNotifier.value = database.values.toList();
   }
+
+  Future<void> deleteData(int id) async {
+    final database = await Hive.openBox<DataModel>('app_db');
+    database.delete(id);
+    getAllData();
+  }
 }

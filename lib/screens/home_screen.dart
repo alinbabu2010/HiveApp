@@ -25,6 +25,7 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: ListWidget(
                 dataListNotifier: databaseSource.dataListNotifier,
+                onDelete: databaseSource.deleteData,
               ),
             )
           ],

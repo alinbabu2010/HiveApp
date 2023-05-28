@@ -11,6 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    databaseSource.getAllData();
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: SafeArea(

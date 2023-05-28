@@ -69,10 +69,11 @@ class _AddWidgetState extends State<AddWidget> {
             keyboardType: TextInputType.number,
           ),
           const SizedBox(height: 10),
-          ElevatedButton.icon(
+          FilledButton.icon(
             onPressed: onAddData,
             icon: const Icon(Icons.add),
             label: const Text("Add"),
+            style: const ButtonStyle(elevation: MaterialStatePropertyAll(4)),
           )
         ],
       ),

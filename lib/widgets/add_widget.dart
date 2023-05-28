@@ -20,6 +20,7 @@ class _AddWidgetState extends State<AddWidget> {
   final ageController = TextEditingController();
 
   void onAddData() {
+    FocusManager.instance.primaryFocus?.unfocus();
     var name = nameController.text;
     var age = ageController.text;
     if (name.isEmpty || age.isEmpty) {
@@ -58,6 +59,8 @@ class _AddWidgetState extends State<AddWidget> {
               hintText: "Name",
             ),
             keyboardType: TextInputType.name,
+            textCapitalization: TextCapitalization.sentences,
+            textInputAction: TextInputAction.next,
           ),
           const SizedBox(height: 10),
           TextField(
@@ -67,6 +70,7 @@ class _AddWidgetState extends State<AddWidget> {
               hintText: "Age",
             ),
             keyboardType: TextInputType.number,
+            onEditingComplete: onAddData,
           ),
           const SizedBox(height: 10),
           FilledButton.icon(

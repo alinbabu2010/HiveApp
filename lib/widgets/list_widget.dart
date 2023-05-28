@@ -5,10 +5,12 @@ import '../data/model/data_model.dart';
 
 class ListWidget extends StatelessWidget {
   final ValueListenable<List<DataModel>> dataListNotifier;
+  final Function(int) onDelete;
 
   const ListWidget({
     Key? key,
     required this.dataListNotifier,
+    required this.onDelete,
   }) : super(key: key);
 
   @override
@@ -22,6 +24,11 @@ class ListWidget extends StatelessWidget {
             return ListTile(
               title: Text(dataModel.name),
               subtitle: Text(dataModel.age),
+              trailing: IconButton(
+                onPressed: () => onDelete(dataModel.key),
+                color: Colors.red,
+                icon: const Icon(Icons.delete),
+              ),
             );
           },
           separatorBuilder: (_, index) {

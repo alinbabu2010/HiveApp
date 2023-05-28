@@ -3,20 +3,17 @@ import 'package:hive_flutter/adapters.dart';
 part 'data_model.g.dart';
 
 @HiveType(typeId: 1)
-class DataModel {
+class DataModel extends HiveObject {
   @HiveField(0)
-  int? id;
-
-  @HiveField(1)
   final String name;
 
-  @HiveField(2)
+  @HiveField(1)
   final String age;
 
-  DataModel({this.id, required this.name, required this.age});
+  DataModel({required this.name, required this.age});
 
   @override
   String toString() {
-    return "DataModel(id:$id,name:$name,age:$age)";
+    return "DataModel(name:$name,age:$age)";
   }
 }
